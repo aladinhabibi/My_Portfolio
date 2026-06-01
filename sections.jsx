@@ -293,7 +293,7 @@ const projects = [
     deployment: ['Cloud Backend', 'iOS Beta', 'Android Beta'],
     status: 'In Development',
     accent: 'a',
-    screenshots: []
+    screenshots: ['assets/dronia-app.png']
   },
   {
     id: 'parahouse',
@@ -308,7 +308,7 @@ const projects = [
     deployment: ['Play Store-ready', 'App Store-ready'],
     status: 'Built',
     accent: 'b',
-    screenshots: []
+    screenshots: ['assets/parahouse.jpg']
   },
   {
     id: '1111tn',
@@ -323,7 +323,7 @@ const projects = [
     deployment: ['Play Store · Released'],
     status: 'Shipped',
     accent: 'd',
-    screenshots: []
+    screenshots: ['assets/1111-mobile.jpg']
   },
   {
     id: 'albaraka',
@@ -338,7 +338,7 @@ const projects = [
     deployment: ['Web · Deployed'],
     status: 'Shipped',
     accent: 'c',
-    screenshots: []
+    screenshots: ['assets/artsigns.png']
   },
   {
     id: 'alucoled',
@@ -353,7 +353,7 @@ const projects = [
     deployment: ['Web · Deployed'],
     status: 'Shipped',
     accent: 'e',
-    screenshots: []
+    screenshots: ['assets/alucoled enseigne.png']
   },
   {
     id: 'wattspot',
@@ -368,7 +368,7 @@ const projects = [
     deployment: ['Web · Deployed', 'Mobile · Built', 'Supabase Hosted'],
     status: 'Shipped',
     accent: 'a',
-    screenshots: []
+    screenshots: ['assets/watt spot web.png', 'assets/Watt spot mobile.jpg']
   },
   {
     id: 'appaxis',
@@ -383,11 +383,11 @@ const projects = [
     deployment: ['App Store-ready', 'TestFlight Tested'],
     status: 'Shipped',
     accent: 'b',
-    screenshots: []
+    screenshots: ['assets/Appaxis innovation .jpg']
   },
   {
     id: 'sagemcom',
-    type: 'qa',
+    type: 'desktop',
     kind: 'QA · Automation · Computer Vision',
     title: 'SAGEMCOM Test Suite',
     client: 'SAGEMCOM · 2024',
@@ -398,7 +398,22 @@ const projects = [
     deployment: ['CI Pipeline'],
     status: 'Shipped',
     accent: 'd',
-    screenshots: []
+    screenshots: ['assets/Sagemcom test suite.png']
+  },
+  {
+    id: 'tdiscount-seller',
+    type: 'mobile',
+    kind: 'Mobile · Marketplace · Ambassador',
+    title: 'Tdiscount Seller',
+    client: 'Ambassador Marketplace · Final-Year Project · 2026',
+    problem: 'Sellers and brand ambassadors needed a dedicated mobile hub to recruit vendors, track commissions, monitor rankings, manage their wallet, and coordinate their team — all from one app.',
+    description: 'Flutter ambassador marketplace app for Tdiscount sellers. Features a live dashboard, vendor recruitment and management, commission analytics with FL Chart, a leaderboard ranking system, team overview, interactive map (flutter_map), wallet with withdrawal flow, push notifications, and full onboarding/auth flows.',
+    realization: 'Built end-to-end in Flutter with Provider state management and go_router navigation. Implemented animated UI components (shimmer, staggered animations), cached network images, and cross-platform launcher icons for Android, iOS and web.',
+    stack: ['Flutter', 'Dart', 'Provider', 'go_router', 'FL Chart', 'flutter_map', 'shimmer', 'REST API'],
+    deployment: ['Android', 'iOS', 'Web'],
+    status: 'In Development',
+    accent: 'e',
+    screenshots: ['assets/Tdiscount seller.jpg']
   },
 ];
 
@@ -465,6 +480,38 @@ function PhoneFrame({ p, screenshotIndex = 0 }) {
   );
 }
 
+function DesktopFrame({ p }) {
+  const shot = p.screenshots && p.screenshots[0];
+  return (
+    <div className={'pf pf-laptop pf-accent-' + p.accent}>
+      <div className="pf-laptop-lid">
+        <div className="pf-laptop-camera" />
+        <div className="pf-screen">
+          {shot ? (
+            <img src={shot} alt={p.title} />
+          ) : (
+            <div className="pf-placeholder pf-placeholder-web">
+              <div className="pf-skel-1" />
+              <div className="pf-skel-2" />
+              <div className="pf-skel-grid">
+                <div className="pf-skel-card" />
+                <div className="pf-skel-card" />
+                <div className="pf-skel-card" />
+                <div className="pf-skel-card" />
+              </div>
+              <div className="pf-skel-2 short" />
+            </div>
+          )}
+        </div>
+      </div>
+      <div className="pf-laptop-hinge" />
+      <div className="pf-laptop-base">
+        <div className="pf-laptop-touchpad" />
+      </div>
+    </div>
+  );
+}
+
 function ProjectFrame({ p, activeView }) {
   if (p.type === 'hybrid') {
     return (
@@ -478,6 +525,7 @@ function ProjectFrame({ p, activeView }) {
       </div>
     );
   }
+  if (p.type === 'desktop') return <DesktopFrame p={p} />;
   if (p.type === 'web') return <BrowserFrame p={p} />;
   return <PhoneFrame p={p} />;
 }
@@ -567,7 +615,7 @@ function Projects() {
     <section className="section projects" id="projects">
       <div className="section-head reveal">
         <div className="section-eyebrow">Selected Work</div>
-        <h2 className="section-title display">Eight case studies,<br/>shipped end-to-end.</h2>
+        <h2 className="section-title display">Nine case studies,<br/>shipped end-to-end.</h2>
         <p className="section-sub">From design and frontend to backend, deployment, App Store, Play Store and the web — every project below was taken from idea to release.</p>
       </div>
 
