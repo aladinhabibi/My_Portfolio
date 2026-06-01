@@ -293,7 +293,7 @@ const projects = [
     deployment: ['Cloud Backend', 'iOS Beta', 'Android Beta'],
     status: 'In Development',
     accent: 'a',
-    screenshots: ['assets/dronia-app.png']
+    screenshots: ['assets/dronia.png']
   },
   {
     id: 'parahouse',
@@ -308,7 +308,7 @@ const projects = [
     deployment: ['Play Store-ready', 'App Store-ready'],
     status: 'Built',
     accent: 'b',
-    screenshots: ['assets/parahouse.jpg']
+    screenshots: ['assets/parahouse.png']
   },
   {
     id: '1111tn',
@@ -323,7 +323,7 @@ const projects = [
     deployment: ['Play Store · Released'],
     status: 'Shipped',
     accent: 'd',
-    screenshots: ['assets/1111-mobile.jpg']
+    screenshots: ['assets/1111tn.png']
   },
   {
     id: 'albaraka',
@@ -368,22 +368,22 @@ const projects = [
     deployment: ['Web · Deployed', 'Mobile · Built', 'Supabase Hosted'],
     status: 'Shipped',
     accent: 'a',
-    screenshots: ['assets/watt spot web.png', 'assets/Watt spot mobile.jpg']
+    screenshots: ['assets/wattspot web.png', 'assets/wattspot mobile.png']
   },
   {
-    id: 'appaxis',
+    id: 'pickme',
     type: 'ios',
     kind: 'iOS · Native · SwiftUI',
-    title: 'Appaxis iOS App',
+    title: 'PickMe',
     client: 'Appaxis Innovations · 2025',
-    problem: 'A modern iOS frontend was needed against a Swagger-documented backend — native polish, tight API integration and a maintainable component library.',
-    description: 'Native iOS app built with SwiftUI. Reusable component library, async API layer consuming Swagger-documented services, clean MVVM architecture.',
+    problem: 'PickMe needed a polished native iOS client for their platform — tight Swagger API integration, real-time map interface, and a component library maintainable beyond the internship.',
+    description: 'Native iOS driver app built in SwiftUI. Live map interface, service status toggle, real-time trip management, reusable component library, async API layer consuming Swagger-documented services, clean MVVM architecture.',
     realization: 'Delivered a native iOS app with custom SwiftUI components, smooth animations and full backend integration via Xcode + CocoaPods workflows.',
     stack: ['SwiftUI', 'Swift', 'Xcode', 'CocoaPods', 'Swagger', 'Async/Await'],
     deployment: ['App Store-ready', 'TestFlight Tested'],
     status: 'Shipped',
     accent: 'b',
-    screenshots: ['assets/Appaxis innovation .jpg']
+    screenshots: ['assets/pick me.png']
   },
   {
     id: 'sagemcom',
@@ -398,7 +398,7 @@ const projects = [
     deployment: ['CI Pipeline'],
     status: 'Shipped',
     accent: 'd',
-    screenshots: ['assets/Sagemcom test suite.png']
+    screenshots: ['assets/sagemcom.png']
   },
   {
     id: 'tdiscount-seller',
@@ -413,101 +413,15 @@ const projects = [
     deployment: ['Android', 'iOS', 'Web'],
     status: 'In Development',
     accent: 'e',
-    screenshots: ['assets/Tdiscount seller.jpg']
+    screenshots: ['assets/tdiacount seller.png']
   },
 ];
 
-function BrowserFrame({ p, screenshotIndex = 0 }) {
+function ImageFrame({ p, screenshotIndex = 0 }) {
   const shot = p.screenshots && p.screenshots[screenshotIndex];
   return (
-    <div className={'pf pf-browser pf-accent-' + p.accent}>
-      <div className="pf-bar">
-        <span className="pf-dot d1" />
-        <span className="pf-dot d2" />
-        <span className="pf-dot d3" />
-        <div className="pf-url">{p.id}.app</div>
-      </div>
-      <div className="pf-screen">
-        {shot ? (
-          <img src={shot} alt={p.title} />
-        ) : (
-          <div className="pf-placeholder pf-placeholder-web">
-            <div className="pf-skel-1" />
-            <div className="pf-skel-2" />
-            <div className="pf-skel-grid">
-              <div className="pf-skel-card" />
-              <div className="pf-skel-card" />
-              <div className="pf-skel-card" />
-              <div className="pf-skel-card" />
-            </div>
-            <div className="pf-skel-2 short" />
-          </div>
-        )}
-      </div>
-    </div>
-  );
-}
-
-function PhoneFrame({ p, screenshotIndex = 0 }) {
-  const shot = p.screenshots && p.screenshots[screenshotIndex];
-  return (
-    <div className={'pf pf-phone pf-accent-' + p.accent}>
-      <div className="pf-phone-notch" />
-      <div className="pf-screen">
-        {shot ? (
-          <img src={shot} alt={p.title} />
-        ) : (
-          <div className="pf-placeholder pf-placeholder-mobile">
-            <div className="pf-skel-status">
-              <span /><span /><span />
-            </div>
-            <div className="pf-skel-1" />
-            <div className="pf-skel-card-tall" />
-            <div className="pf-skel-row">
-              <div className="pf-skel-card" />
-              <div className="pf-skel-card" />
-            </div>
-            <div className="pf-skel-row">
-              <div className="pf-skel-card" />
-              <div className="pf-skel-card" />
-            </div>
-            <div className="pf-skel-2" />
-          </div>
-        )}
-      </div>
-      <div className="pf-phone-home" />
-    </div>
-  );
-}
-
-function DesktopFrame({ p }) {
-  const shot = p.screenshots && p.screenshots[0];
-  return (
-    <div className={'pf pf-laptop pf-accent-' + p.accent}>
-      <div className="pf-laptop-lid">
-        <div className="pf-laptop-camera" />
-        <div className="pf-screen">
-          {shot ? (
-            <img src={shot} alt={p.title} />
-          ) : (
-            <div className="pf-placeholder pf-placeholder-web">
-              <div className="pf-skel-1" />
-              <div className="pf-skel-2" />
-              <div className="pf-skel-grid">
-                <div className="pf-skel-card" />
-                <div className="pf-skel-card" />
-                <div className="pf-skel-card" />
-                <div className="pf-skel-card" />
-              </div>
-              <div className="pf-skel-2 short" />
-            </div>
-          )}
-        </div>
-      </div>
-      <div className="pf-laptop-hinge" />
-      <div className="pf-laptop-base">
-        <div className="pf-laptop-touchpad" />
-      </div>
+    <div className="pf-image">
+      {shot && <img src={shot} alt={p.title} />}
     </div>
   );
 }
@@ -517,17 +431,15 @@ function ProjectFrame({ p, activeView }) {
     return (
       <div className="frame-stage">
         <div className={'frame-slot frame-slot-web' + (activeView === 'web' ? ' active' : '')}>
-          <BrowserFrame p={p} screenshotIndex={0} />
+          <ImageFrame p={p} screenshotIndex={0} />
         </div>
         <div className={'frame-slot frame-slot-mobile' + (activeView === 'mobile' ? ' active' : '')}>
-          <PhoneFrame p={p} screenshotIndex={1} />
+          <ImageFrame p={p} screenshotIndex={1} />
         </div>
       </div>
     );
   }
-  if (p.type === 'desktop') return <DesktopFrame p={p} />;
-  if (p.type === 'web') return <BrowserFrame p={p} />;
-  return <PhoneFrame p={p} />;
+  return <ImageFrame p={p} />;
 }
 
 function FrameToggle({ active, onChange }) {
