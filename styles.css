@@ -1137,6 +1137,8 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   justify-content: center;
   position: relative;
   z-index: 1;
+  width: 100%;
+  overflow: hidden;
 }
 .case-body {
   display: flex;
@@ -1246,6 +1248,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   border-radius: 36px;
   background: linear-gradient(160deg, #1f1f25, #0f0f13);
   padding: 12px;
+  overflow: hidden;
   box-shadow:
     0 30px 60px rgba(0,0,0,0.25),
     0 0 0 1px rgba(255,255,255,0.04) inset,
@@ -1283,9 +1286,10 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   flex-direction: column;
   align-items: center;
   flex-shrink: 0;
+  width: calc(100% - 20px); /* lid is narrower so base can be wider without overflow */
 }
 .pf-laptop-lid {
-  width: 420px;
+  width: 100%;
   background: linear-gradient(160deg, #1f1f25, #0f0f13);
   border-radius: 12px 12px 0 0;
   padding: 10px 10px 7px;
@@ -1302,19 +1306,19 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 }
 .pf-laptop .pf-screen {
   width: 100%;
-  height: 258px;
+  height: 215px;
   border-radius: 5px;
   overflow: hidden;
   position: relative;
 }
 .pf-laptop-hinge {
-  width: 420px;
+  width: 100%;
   height: 5px;
   background: linear-gradient(180deg, #2e2e36 0%, #1c1c22 100%);
   border-bottom: 1px solid rgba(0,0,0,0.5);
 }
 .pf-laptop-base {
-  width: 460px;
+  width: calc(100% + 20px); /* slightly wider than lid — laptop bottom effect */
   height: 22px;
   background: linear-gradient(180deg, #232329 0%, #15151a 100%);
   border-radius: 0 0 10px 10px;
@@ -1427,7 +1431,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 
 /* ==== Browser frame ==== */
 .pf-browser {
-  width: 380px;
+  width: 100%;
   border-radius: 14px;
   background: #232328;
   box-shadow:
@@ -1463,8 +1467,9 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 }
 .pf-browser .pf-screen {
   width: 100%;
-  height: 240px;
+  height: 230px;
   position: relative;
+  overflow: hidden;
 }
 
 /* Screenshot images fill the frame */
@@ -1472,6 +1477,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: top center;
   display: block;
 }
 
@@ -1560,12 +1566,8 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   .case, .case.case-flip { padding: 22px; gap: 22px; }
   .case-title { font-size: 24px; }
   .pf-phone { width: 200px; height: 410px; }
-  .pf-browser { width: 100%; max-width: 360px; }
-  .pf-browser .pf-screen { height: 220px; }
+  .pf-browser .pf-screen { height: 190px; }
   .frame-stage { height: 440px; }
-  .pf-laptop-lid { width: 100%; max-width: 340px; }
-  .pf-laptop .pf-screen { height: 200px; }
-  .pf-laptop-hinge { width: 100%; max-width: 340px; }
-  .pf-laptop-base { width: calc(100% + 24px); max-width: 368px; }
+  .pf-laptop .pf-screen { height: 170px; }
   .footer { padding: 20px; font-size: 13px; }
 }
