@@ -419,9 +419,22 @@ const projects = [
 
 function ImageFrame({ p, screenshotIndex = 0 }) {
   const shot = p.screenshots && p.screenshots[screenshotIndex];
+  const boxRef = useRef(null);
+  const imgRef = useRef(null);
+  const onMove = (e) => {
+    const img = imgRef.current;
+    const box = boxRef.current;
+    if (!img || !box) return;
+    const r = box.getBoundingClientRect();
+    img.style.transformOrigin =
+      `${((e.clientX - r.left) / r.width) * 100}% ${((e.clientY - r.top) / r.height) * 100}%`;
+  };
+  const onLeave = () => {
+    if (imgRef.current) imgRef.current.style.transformOrigin = 'center center';
+  };
   return (
-    <div className="pf-image">
-      {shot && <img src={shot} alt={p.title} />}
+    <div className="pf-image" ref={boxRef} onMouseMove={onMove} onMouseLeave={onLeave}>
+      {shot && <img ref={imgRef} src={shot} alt={p.title} />}
     </div>
   );
 }
