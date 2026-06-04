@@ -44,7 +44,7 @@ function App() {
 
   // Active nav tracking
   useEffect(() => {
-    const ids = ['home', 'works', 'services', 'capabilities', 'about', 'contact'];
+    const ids = ['home', 'works', 'services', 'capabilities', 'projects', 'about', 'contact'];
     const onScroll = () => {
       let cur = ids[0];
       for (const id of ids) {
@@ -90,6 +90,7 @@ function App() {
     { id: 'home', label: 'Home' },
     { id: 'works', label: 'Experience' },
     { id: 'services', label: 'Skills' },
+    { id: 'projects', label: 'Projects' },
     { id: 'about', label: 'About' },
   ];
 
@@ -124,6 +125,7 @@ function App() {
         <Experience />
         <Skills />
         <Capabilities />
+        <Projects />
         <Contact />
 
         <footer className="footer">
