@@ -386,21 +386,6 @@ const projects = [
     screenshots: ['assets/pick me.png']
   },
   {
-    id: 'sagemcom',
-    type: 'desktop',
-    kind: 'QA · Automation · Computer Vision',
-    title: 'SAGEMCOM Test Suite',
-    client: 'SAGEMCOM · 2024',
-    problem: 'Manual mobile-device QA procedures were slow, error-prone and did not scale across the device farm. The team needed a way to run them automatically every night.',
-    description: 'Automated test environment that replaces manual QA procedures across many mobile devices. Robot Framework orchestration, Appium + ADB drivers, OpenCV-driven visual checks.',
-    realization: 'Delivered an end-to-end automation pipeline that runs nightly across the device farm and produces reports — cutting manual QA time substantially.',
-    stack: ['Python', 'Robot Framework', 'Appium', 'ADB', 'OpenCV'],
-    deployment: ['CI Pipeline'],
-    status: 'Shipped',
-    accent: 'd',
-    screenshots: ['assets/sagemcom.png']
-  },
-  {
     id: 'tdiscount-seller',
     type: 'mobile',
     kind: 'Mobile · Marketplace · Ambassador',
